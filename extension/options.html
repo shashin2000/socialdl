@@ -1,0 +1,51 @@
+<!doctype html><html><head><meta charset="utf-8"><title>SocialDL</title><link rel="stylesheet" href="style.css"></head>
+<body class="opt">
+<h1><img src="icons/icon48.png">SocialDL – <span data-i="settings"></span></h1>
+
+<fieldset><legend data-i="language"></legend>
+  <div class="row">
+    <div><label data-i="language"></label><select id="lang"><option value="si">සිංහල</option><option value="en">English</option></select></div>
+    <div><label data-i="theme"></label><select id="theme"><option value="auto" data-i="theme_auto"></option><option value="light" data-i="theme_light"></option><option value="dark" data-i="theme_dark"></option></select></div>
+  </div>
+</fieldset>
+
+<fieldset><legend data-i="defaults"></legend>
+  <div class="row">
+    <div><label data-i="download"></label><select id="mode"><option value="video" data-i="video"></option><option value="audio" data-i="audio"></option><option value="image" data-i="image"></option></select></div>
+    <div><label data-i="container"></label><select id="vformat"><option>mp4</option><option>mkv</option><option>webm</option></select></div>
+    <div><label data-i="quality"></label><select id="quality"><option value="best" data-i="best"></option><option>2160</option><option>1440</option><option>1080</option><option>720</option><option>480</option><option>360</option></select></div>
+    <div><label data-i="audio"></label><select id="aformat"><option>mp3</option><option>m4a</option><option>wav</option><option>flac</option><option>opus</option></select></div>
+  </div>
+  <div class="row">
+    <div><label data-i="subs"></label><select id="subs"><option value="none" data-i="sub_none"></option><option value="save" data-i="sub_save"></option><option value="embed" data-i="sub_embed"></option></select></div>
+    <div><label data-i="sublangs"></label><input type="text" id="sublangs"></div>
+  </div>
+  <label class="chk"><input type="checkbox" id="embedCover"><span data-i="embed_cover"></span></label>
+  <label class="chk"><input type="checkbox" id="pageButton"><span data-i="page_btn"></span></label>
+  <div><label data-i="cookies"></label><select id="cookies"><option value="" data-i="cookies_none"></option><option>chrome</option><option>edge</option><option>firefox</option><option>brave</option><option>opera</option><option>vivaldi</option></select></div>
+</fieldset>
+
+<fieldset><legend data-i="storage"></legend>
+  <div class="mut" data-i="folder_hint"></div>
+  <div><label data-i="folder"></label><div class="row"><input type="text" id="folder"><button id="bBrowse" class="fit" data-i="browse"></button></div></div>
+  <div><label data-i="template"></label><input type="text" id="template" list="tpls">
+    <datalist id="tpls"><option value="%(title).150B.%(ext)s"><option value="%(uploader)s - %(title).120B.%(ext)s"><option value="%(upload_date)s - %(title).120B.%(ext)s"><option value="%(playlist_index)s - %(title).120B.%(ext)s"></datalist></div>
+  <div class="row"><div><label data-i="parallel"></label><input type="number" id="maxp" min="1" max="8"></div><div></div></div>
+  <label class="chk"><input type="checkbox" id="autoUpd"><span data-i="auto_update"></span></label>
+  <div class="row"><button id="bUpd" class="fit" data-i="update_now"></button><span class="mut" id="vers"></span></div>
+</fieldset>
+
+<fieldset><legend data-i="updates"></legend>
+  <div class="mut" id="appv"></div>
+  <div class="row"><button id="bCheck" class="fit pri" data-i="check_upd"></button><span id="updR" class="mut"></span></div>
+</fieldset>
+
+<fieldset><legend data-i="helper_conn"></legend>
+  <div class="row"><div><label data-i="helper_url"></label><input type="text" id="helper"></div>
+  <div><label data-i="token"></label><input type="password" id="token"></div></div>
+  <div class="row"><button id="bTest" class="fit" data-i="test"></button><span id="testR" class="mut"></span></div>
+</fieldset>
+
+<button id="bSave" class="pri" data-i="save"></button> <span id="saved" class="okc"></span>
+<script src="common.js"></script><script src="options.js"></script>
+</body></html>

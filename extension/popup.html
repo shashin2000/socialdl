@@ -1,0 +1,84 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="style.css"></head>
+<body class="popup">
+<header>
+  <div class="brand"><img src="icons/icon32.png"><b>SocialDL</b></div>
+  <span id="pill" class="pill"><i></i><span id="pillT"></span></span>
+  <span class="sp"></span>
+  <button id="bLang" class="ib" title="Language"></button>
+  <button id="bTheme" class="ib" title="Theme">🌓</button>
+  <button id="bSet" class="ib" title="Settings">⚙</button>
+</header>
+
+<div id="banner" class="banner hidden">
+  <div id="bannerMsg"></div>
+  <div class="row"><input type="password" id="tok" data-ph="token_ph"><button id="bConn" class="fit pri" data-i="connect"></button></div>
+</div>
+<div id="boot" class="banner info hidden"><div id="bootT"></div><div class="bar"><i id="bootBar" style="width:0"></i></div></div>
+
+<nav class="tabs">
+  <button data-tab="dl" class="on" data-i="tab_dl"></button>
+  <button data-tab="q"><span data-i="tab_q"></span> <span id="qn"></span></button>
+  <button data-tab="h" data-i="tab_hist"></button>
+</nav>
+
+<main>
+<section id="tab-dl">
+  <div class="urlbox"><input type="text" id="url" data-ph="url_ph"><button id="bFetch" class="pri" title="Fetch">→</button></div>
+
+  <div id="card" class="media hidden">
+    <div class="th"><img id="thumb" referrerpolicy="no-referrer"><span id="dur" class="badge hidden"></span></div>
+    <div class="mi"><div class="t" id="ttl"></div><div class="mut" id="meta"></div></div>
+  </div>
+
+  <div class="seg" id="seg">
+    <button data-m="video">🎬 <span data-i="video"></span></button>
+    <button data-m="audio">🎵 <span data-i="audio"></span></button>
+    <button data-m="image">🖼 <span data-i="image"></span></button>
+  </div>
+
+  <div id="pl" class="hidden">
+    <label class="chk"><input type="checkbox" id="plAll" checked><b data-i="select_all"></b> <span class="mut" id="plN"></span></label>
+    <div class="list" id="plList"></div>
+  </div>
+
+  <div id="optV" class="hidden">
+    <div><label class="lb" data-i="quality"></label><div class="chips" id="qChips"></div></div>
+    <div style="margin-top:12px"><label class="lb" data-i="container"></label><div class="chips" id="cChips"></div></div>
+  </div>
+  <div id="optA" class="hidden">
+    <div><label class="lb" data-i="container"></label><div class="chips" id="aChips"></div></div>
+    <label class="switch" style="margin-top:12px"><input type="checkbox" id="embed"><i></i><span data-i="embed_cover"></span></label>
+  </div>
+
+  <select id="qual" class="hid"><option value="best">best</option><option>2160</option><option>1440</option><option>1080</option><option>720</option><option>480</option><option>360</option></select>
+  <select id="cont" class="hid"><option>mp4</option><option>mkv</option><option>webm</option></select>
+  <select id="afmt" class="hid"><option>mp3</option><option>m4a</option><option>wav</option><option>flac</option><option>opus</option></select>
+
+  <details class="more" id="more"><summary data-i="more"></summary><div>
+    <div id="exactBox"><label class="lb" data-i="exact"></label><select id="exact"></select></div>
+    <div id="subBox" class="row">
+      <div><label class="lb" data-i="subs"></label><select id="subs"><option value="none" data-i="sub_none"></option><option value="save" data-i="sub_save"></option><option value="embed" data-i="sub_embed"></option></select></div>
+      <div><label class="lb" data-i="sublangs"></label><input type="text" id="sublangs"></div>
+    </div>
+    <div id="clip"><label class="lb" data-i="clip"></label><div class="row"><input type="text" id="cs" data-ph="start"><input type="text" id="ce" data-ph="end"></div></div>
+  </div></details>
+
+  <div id="optI" class="hidden">
+    <div class="row"><button id="bGal" class="pri" data-i="gallery"></button></div>
+    <button id="bScan" data-i="scan"></button>
+    <div class="mut" id="scanN"></div>
+    <div class="grid" id="imgs"></div>
+    <button id="bImgs" class="pri hidden" data-i="download_sel"></button>
+  </div>
+</section>
+
+<section id="tab-q" class="hidden"><div id="jobs"></div>
+  <div class="row"><button id="bClear" data-i="clear"></button><button id="bOpenF" data-i="open_folder"></button></div></section>
+<section id="tab-h" class="hidden"><div id="hist"></div>
+  <div class="row"><button id="bOpenF2" data-i="open_folder"></button><button id="bClearH" data-i="clear_hist"></button></div></section>
+</main>
+
+<div class="dock" id="dock"><div class="msg" id="msg"></div><button id="bDl" class="pri big" data-i="download"></button></div>
+<script src="common.js"></script><script src="popup.js"></script>
+</body></html>
