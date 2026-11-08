@@ -1,0 +1,45 @@
+name: release
+on:
+  push:
+    tags: ["v*"]
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Stamp version from tag
+        shell: bash
+        run: |
+          V="${GITHUB_REF_NAME#v}"
+          sed -i "s/^VERSION = .*/VERSION = \"$V\"/" helper/helper.py
+          sed -i "s/\"version\": \"[^\"]*\"/\"version\": \"$V\"/" extension/manifest.json
+      - name: Build SocialDL-Setup.exe
+        shell: bash
+        run: |
+          pip install pyinstaller
+          pyinstaller --onefile --noconsole --name SocialDL-Setup --add-data "extension;extension" helper/helper.py
+      - name: Package extension + checksums
+        shell: bash
+        run: |
+          mkdir release
+          cp dist/SocialDL-Setup.exe release/
+          python - <<'PY'
+          import zipfile, os
+          with zipfile.ZipFile("release/extension.zip", "w", zipfile.ZIP_DEFLATED) as z:
+              for root, _, files in os.walk("extension"):
+                  for f in files:
+                      p = os.path.join(root, f)
+                      z.write(p, os.path.relpath(p, "extension").replace(os.sep, "/"))
+          PY
+          cd release
+          sha256sum SocialDL-Setup.exe extension.zip > SHA256SUMS.txt
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: release/*
+          generate_release_notes: true
