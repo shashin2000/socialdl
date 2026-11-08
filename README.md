@@ -4,7 +4,17 @@ Download videos, music and images from social media straight from your browser (
 powered by [yt-dlp](https://github.com/yt-dlp/yt-dlp), [gallery-dl](https://github.com/mikf/gallery-dl) and ffmpeg.
 UI: English / සිංහල, light / dark.
 
-## Install (Windows)
+## Two engines
+| | **Lite** (extension only, nothing to install) | **Full** (extension + helper) |
+|---|---|---|
+| Direct videos / audio on a page (`<video>`, og:video, .mp4/.mp3 links, TikTok/Facebook/Instagram best-effort) | yes | yes |
+| Images (page scan, right-click) | yes | yes |
+| Queue, progress, history, dark mode, Sinhala/English | yes | yes |
+| YouTube and other streaming sites, 360-2160p choice, MP3/FLAC conversion, playlists, subtitles, clip cut, gallery-dl, cookies | no | yes |
+
+Just load the `extension/` folder and it works in Lite mode immediately. When the helper is running, the extension switches to Full automatically.
+
+## Install the helper (Windows, optional - for Full)
 
 1. Download **`SocialDL-Setup.exe`** from the [latest release](https://github.com/shashin2000/socialdl/releases/latest) and double-click it.
    It installs the helper to `%LOCALAPPDATA%\SocialDL`, starts it with Windows, downloads yt-dlp / gallery-dl / ffmpeg / deno
